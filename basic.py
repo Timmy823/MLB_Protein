@@ -7,16 +7,15 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.cross_validation import KFold
 from sklearn.metrics import roc_auc_score
+
 with open('/home/mlb2017/res/phosphosite/train_data') as f:
     data = f.readlines()
 data = [x.strip() for x in data]
 
 seqlist = []
-phoslist = []
 for site in data:
     site = site.split(' ')
     seqlist.append(site[2])
-    phoslist.append(site[0])
 ###print(seqlist)
 acids = ["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
 freqlist = [];
@@ -35,8 +34,8 @@ for seq in seqlist:
 freq = np.array(freqlist)
 X = np.load('/home/mlb2017/res/phosphosite/trainX.npy')
 X = np.hstack((freq, X))
-Y = np.array(phoslist)
-kf = KFold(len(X),n_folds=10)
+Y = np.load('/home/mlb2017/res/phosphosite/trainY.npy')
+kf = KFold(len(X),n_folds=10,shuffle=True)
 sum_train_score = 0
 sum_test_score = 0
 sum_auc1 = 0
@@ -48,14 +47,12 @@ for train_index,test_index in kf:
   clf = Pipeline([('scaler', StandardScaler()),
                 ('clf', SVC(C=float(sys.argv[1]),gamma=float(sys.argv[2]),probability=True))])
   clf.fit(train_X, train_Y)
-  y_score = clf.predict_proba(train_X)[:, 1]
-  y_decision = clf.decision_function(train_X)
   sum_train_score = sum_train_score + clf.score(train_X,train_Y)
   sum_test_score = sum_test_score + clf.score(test_X,test_Y)
   print('Train Accuracy: {:.3f}'.format(clf.score(train_X,train_Y)))
   print('Test Accuracy: {:.3f}'.format(clf.score(test_X,test_Y)))
-  Y_score = clf.predict_proba(train_X)[:, 1]
-  Y_decision = clf.decision_function(train_X)
+  Y_score = clf.predict_proba(test_X)[:, 1]  
+  Y_decision = clf.decision_function(test_X)
   sum_auc1 = sum_auc1 + roc_auc_score(test_Y, Y_score)
   sum_auc2 = sum_auc2 + roc_auc_score(test_Y, Y_decision)
   print('AUC: {:.3f}'.format(roc_auc_score(test_Y, Y_score)))
