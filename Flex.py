@@ -33,7 +33,7 @@ for seq in seqlist:
     acids_count[index] = float(acids_count[index]/19)
   temp = acids_count
   temp.append(flex_index_count)
-  feature_list.append(temp)
+  featurelist.append(temp)
   acids_count = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 ###print(freqlist)
 add_feature = np.array(featurelist)
