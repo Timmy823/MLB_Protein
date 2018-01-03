@@ -1,0 +1,89 @@
+basic(20_acid_frequency)
+0.644 (+/-0.109) for {'clf__C': 0.5, 'clf__gamma': 0.025}
+0.726 (+/-0.047) for {'clf__C': 0.5, 'clf__gamma': 0.01}
+0.743 (+/-0.042) for {'clf__C': 0.5, 'clf__gamma': 0.005}
+0.656 (+/-0.039) for {'clf__C': 1, 'clf__gamma': 0.025}
+0.742 (+/-0.040) for {'clf__C': 1, 'clf__gamma': 0.01}
+0.747 (+/-0.039) for {'clf__C': 1, 'clf__gamma': 0.005}
+0.666 (+/-0.037) for {'clf__C': 2.5, 'clf__gamma': 0.025}
+0.740 (+/-0.039) for {'clf__C': 2.5, 'clf__gamma': 0.01}
+0.737 (+/-0.035) for {'clf__C': 2.5, 'clf__gamma': 0.005}
+0.665 (+/-0.038) for {'clf__C': 5, 'clf__gamma': 0.025}
+0.741 (+/-0.036) for {'clf__C': 5, 'clf__gamma': 0.01}
+0.730 (+/-0.039) for {'clf__C': 5, 'clf__gamma': 0.005}
+0.666 (+/-0.040) for {'clf__C': 10, 'clf__gamma': 0.025}
+0.739 (+/-0.035) for {'clf__C': 10, 'clf__gamma': 0.01}
+0.726 (+/-0.040) for {'clf__C': 10, 'clf__gamma': 0.005}
+
+{"clf__C": 1, "clf__gamma": 0.005}
+Train accuracy : 0.747
+Test accuracy: 0.801
+AUC: 0.592
+
+====================================
+0.747 (+/-0.043) for {'clf__C': 0.5, 'clf__gamma': 0.025}
+0.798 (+/-0.043) for {'clf__C': 0.5, 'clf__gamma': 0.01}
+0.813 (+/-0.041) for {'clf__C': 0.5, 'clf__gamma': 0.005}
+0.756 (+/-0.043) for {'clf__C': 1, 'clf__gamma': 0.025}
+0.810 (+/-0.040) for {'clf__C': 1, 'clf__gamma': 0.01}
+0.815 (+/-0.039) for {'clf__C': 1, 'clf__gamma': 0.005}
+0.761 (+/-0.044) for {'clf__C': 2.5, 'clf__gamma': 0.025}
+0.811 (+/-0.036) for {'clf__C': 2.5, 'clf__gamma': 0.01}
+0.807 (+/-0.034) for {'clf__C': 2.5, 'clf__gamma': 0.005}
+0.761 (+/-0.044) for {'clf__C': 5, 'clf__gamma': 0.025}
+0.811 (+/-0.037) for {'clf__C': 5, 'clf__gamma': 0.01}
+0.798 (+/-0.033) for {'clf__C': 5, 'clf__gamma': 0.005}
+0.761 (+/-0.044) for {'clf__C': 10, 'clf__gamma': 0.025}
+0.811 (+/-0.036) for {'clf__C': 10, 'clf__gamma': 0.01}
+0.798 (+/-0.033) for {'clf__C': 10, 'clf__gamma': 0.005}
+
+{"clf__C": 1, "clf__gamma": 0.005}
+Train roc_auc : 0.815
+Test accuracy: 0.800
+AUC: 0.591
+
+====================================PCA=50
+0.645 (+/-0.037) for {'clf__C': 0.5, 'clf__gamma': 0.025}
+0.726 (+/-0.050) for {'clf__C': 0.5, 'clf__gamma': 0.01}
+0.736 (+/-0.040) for {'clf__C': 0.5, 'clf__gamma': 0.005}
+0.700 (+/-0.045) for {'clf__C': 1, 'clf__gamma': 0.025}
+0.730 (+/-0.042) for {'clf__C': 1, 'clf__gamma': 0.01}
+0.734 (+/-0.040) for {'clf__C': 1, 'clf__gamma': 0.005}
+0.706 (+/-0.045) for {'clf__C': 2.5, 'clf__gamma': 0.025}
+0.721 (+/-0.032) for {'clf__C': 2.5, 'clf__gamma': 0.01}
+0.725 (+/-0.036) for {'clf__C': 2.5, 'clf__gamma': 0.005}
+0.707 (+/-0.041) for {'clf__C': 5, 'clf__gamma': 0.025}
+0.714 (+/-0.037) for {'clf__C': 5, 'clf__gamma': 0.01}
+0.712 (+/-0.030) for {'clf__C': 5, 'clf__gamma': 0.005}
+0.707 (+/-0.041) for {'clf__C': 10, 'clf__gamma': 0.025}
+0.712 (+/-0.039) for {'clf__C': 10, 'clf__gamma': 0.01}
+0.699 (+/-0.030) for {'clf__C': 10, 'clf__gamma': 0.005}
+
+{"clf__C": 0.5, "clf__gamma": 0.005}
+Train accuracy : 0.736
+Test accuracy: 0.789
+AUC: 0.581
+
+====================================
+0.755 (+/-0.044) for {'clf__C': 0.5, 'clf__gamma': 0.025}
+0.800 (+/-0.041) for {'clf__C': 0.5, 'clf__gamma': 0.01}
+0.803 (+/-0.039) for {'clf__C': 0.5, 'clf__gamma': 0.005}
+0.778 (+/-0.044) for {'clf__C': 1, 'clf__gamma': 0.025}
+0.798 (+/-0.042) for {'clf__C': 1, 'clf__gamma': 0.01}
+0.805 (+/-0.040) for {'clf__C': 1, 'clf__gamma': 0.005}
+0.782 (+/-0.043) for {'clf__C': 2.5, 'clf__gamma': 0.025}
+0.786 (+/-0.032) for {'clf__C': 2.5, 'clf__gamma': 0.01}
+0.793 (+/-0.036) for {'clf__C': 2.5, 'clf__gamma': 0.005}
+0.782 (+/-0.044) for {'clf__C': 5, 'clf__gamma': 0.025}
+0.784 (+/-0.035) for {'clf__C': 5, 'clf__gamma': 0.01}
+0.782 (+/-0.026) for {'clf__C': 5, 'clf__gamma': 0.005}
+0.781 (+/-0.043) for {'clf__C': 10, 'clf__gamma': 0.025}
+0.780 (+/-0.034) for {'clf__C': 10, 'clf__gamma': 0.01}
+0.764 (+/-0.036) for {'clf__C': 10, 'clf__gamma': 0.005}
+
+{"clf__C": 1, "clf__gamma": 0.005}
+Train roc_auc : 0.805
+Test accuracy: 0.781
+AUC: 0.576
+
+====================================
