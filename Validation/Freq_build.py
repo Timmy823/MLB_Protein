@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import sklearn
 from sklearn.pipeline import Pipeline
@@ -5,7 +6,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
 import pickle
-
 with open('/home/mlb2017/res/phosphosite/train_data') as f:
     data = f.readlines()
 data = [x.strip() for x in data]
@@ -46,9 +46,9 @@ train_X = np.hstack((new_feature, X))
 train_Y = np.load('/home/mlb2017/res/phosphosite/trainY.npy')
 clf = Pipeline([('scaler', StandardScaler()),
                 ('pca',PCA(n_components=100)),
-                ('clf', SVC(C=5,gamma=0.005,probability=True))])
+                ('clf', SVC(C=float(sys.argv[1]),gamma=float(sys.argv[2]),probability=True))])
 clf.fit(train_X, train_Y)
 print('Train Accuracy: {:.3f}'.format(clf.score(train_X,train_Y)))
-f = open('./Freq_model.pkl','wb')
-pickle.dump(clf,f)
+f = open('./Freq_model.pkl', "wb")
+pickle.dump(clf, f)
 
