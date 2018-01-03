@@ -19,30 +19,29 @@ for site in data:
 ###print(seqlist)
 acids = ["A","C","D","E","F","G","H","I","K","L","M","N","P","Q","R","S","T","V","W","Y"]
 hydro_index = [0.62, 0.29, -0.90, -0.74, 1.19, 0.48, -0.40, 1.38, -1.50, 1.06, 0.64, -0.78,0.12, -0.85, -2.53, -0.18, -0.05, 1.08, 0.81, 0.26]
-acids_count = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+flex_index = [0.36,0.35,0.51,0.5,0.31,0.54,0.32,0.46,0.47,0.37,0.3,0.46,0.51,0.49,0.53,0.51,0.44,0.39,0.31,0.42]
 ACH_feature =[]
-Freq_feature =[]
+Flex_feature = []
 for seq in seqlist:
   ### ACH_feature
-  temp = []
+  temp_ACH = []
+  ###Flex_feature
+  temp_Flex = []
   for i in range(1,10,1):
     hydro_index_count = 0.0
+    flex_index_count = 0.0
     for j in range(9-i,10+i,1):        
       hydro_index_count = hydro_index_count + hydro_index[acids.index(seq[j])]
-    avg = hydro_index_count/(2*i+1)
-    temp.append(round(avg,3))
-  ACH_feature.append(temp)
-  for item in seq:
-    for index in range(len(acids)):
-      if item == acids[index] :
-        acids_count[index] = acids_count[index] + 1
-  for index in range(len(acids_count)):
-    acids_count[index] = float(acids_count[index]/19)
-  Freq_feature.append(acids_count)
-  acids_count = [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+      flex_index_count = flex_index_count + flex_index[acids.index(seq[j])]
+    avg_hydro = hydro_index_count/(2*i+1)
+    avg_flex = flex_index_count/(2*i+1)
+    temp_ACH.append(round(avg_hydro,3))
+    temp_Flex.append(round(avg_flex,3))
+  ACH_feature.append(temp_ACH)
+  Flex_feature.append(temp_Flex)
 ACH = np.array(ACH_feature)
-Freq = np.array(Freq_feature)
-new_feature =  np.hstack((ACH,Freq))
+Flex = np.array(Flex_feature)
+new_feature = np.hstack((ACH,Flex))
 X = np.load('/home/mlb2017/res/phosphosite/trainX.npy')
 X = np.hstack((new_feature, X))
 Y = np.load('/home/mlb2017/res/phosphosite/trainY.npy')
@@ -50,15 +49,15 @@ kf = KFold(len(X),n_folds=10,shuffle=True)
 sum_train_score = 0
 sum_test_score = 0
 sum_auc1 = 0
-f = open('result.txt','a')
-f.write('python3 '+ sys.argv[1] +' '+sys.argv[2])
+f = open('Flex_window_result.txt','a')
+f.write('python3 Flex_window.py'+ sys.argv[1] +' '+sys.argv[2])
 f.write('\n')
 for train_index,test_index in kf:
   train_X,test_X = X[train_index],X[test_index]
   train_Y,test_Y = Y[train_index],Y[test_index]
   clf = Pipeline([('scaler', StandardScaler()),
                   ('pca',PCA(n_components=100)),
-                ('clf', SVC(C=float(sys.argv[1]),gamma=float(sys.argv[2]),probability=True))])
+                  ('clf', SVC(C=float(sys.argv[1]),gamma=float(sys.argv[2]),probability=True))])
   clf.fit(train_X, train_Y)
   sum_train_score = sum_train_score + clf.score(train_X,train_Y)
   sum_test_score = sum_test_score + clf.score(test_X,test_Y)
@@ -73,9 +72,9 @@ for train_index,test_index in kf:
   f.write('\n')
   f.write('AUC: {:.3f}'.format(roc_auc_score(test_Y, Y_score)))
   f.write('\n')
-  print('---------------------------------------------------------------')
   f.write('---------------------------------------------------------------')
   f.write('\n')
+  print('---------------------------------------------------------------')
 print('Train Avg Accuracy: {:.3f}'.format(sum_train_score/10))
 print('Test Avg Accuracy: {:.3f}'.format(sum_test_score/10))
 print('AUC: {:.3f}'.format(sum_auc1/10))
