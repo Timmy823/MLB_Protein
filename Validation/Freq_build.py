@@ -45,7 +45,7 @@ X = np.load('/home/mlb2017/res/phosphosite/trainX.npy')
 train_X = np.hstack((new_feature, X))
 train_Y = np.load('/home/mlb2017/res/phosphosite/trainY.npy')
 clf = Pipeline([('scaler', StandardScaler()),
-                ('pca',PCA(n_components=100)),
+                ('pca',PCA(n_components=80)),
                 ('clf', SVC(C=float(sys.argv[1]),gamma=float(sys.argv[2]),probability=True))])
 clf.fit(train_X, train_Y)
 print('Train Accuracy: {:.3f}'.format(clf.score(train_X,train_Y)))
