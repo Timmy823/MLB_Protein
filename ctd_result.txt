@@ -40,3 +40,59 @@ AUC: 0.605
 ====================================
 
 
+2018 Jan 09 15:41:48
+CTD_Feature,PCA=100
+0.754 (+/-0.047) for {'clf__gamma': 0.025, 'clf__C': 1}
+0.823 (+/-0.041) for {'clf__gamma': 0.005, 'clf__C': 1}
+0.754 (+/-0.047) for {'clf__gamma': 0.025, 'clf__C': 2.5}
+0.820 (+/-0.038) for {'clf__gamma': 0.005, 'clf__C': 2.5}
+
+{"clf__gamma": 0.005, "clf__C": 1}
+Train roc_auc : 0.823
+Test accuracy: 0.800
+AUC: 0.608
+
+====================================
+
+
+2018 Jan 09 19:38:10
+CTD_Feature,PCA=100
+0.753 (+/-0.046) for {'clf__C': 1, 'clf__gamma': 0.025}
+0.825 (+/-0.041) for {'clf__C': 1, 'clf__gamma': 0.005}
+0.752 (+/-0.046) for {'clf__C': 2.5, 'clf__gamma': 0.025}
+0.825 (+/-0.039) for {'clf__C': 2.5, 'clf__gamma': 0.005}
+
+{"clf__C": 1, "clf__gamma": 0.005}
+Train roc_auc : 0.825
+Test accuracy: 0.804
+AUC: 0.610
+
+====================================
+
+
+2018 Jan 09 23:00:11
+CTD_Feature,PCA=100
+0.828 (+/-0.041) for {'clf__C': 1, 'clf__gamma': 0.005}
+
+{"clf__C": 1, "clf__gamma": 0.005}
+Train roc_auc : 0.828
+Test accuracy: 0.806
+AUC: 0.614
+
+====================================
+
+
+2018 Jan 09 23:55:58
+CTD_Feature,PCA=100
+0.828 (+/-0.042) for {'clf__gamma': 0.005, 'clf__C': 1}
+
+{"clf__gamma": 0.005, "clf__C": 1}
+Train roc_auc : 0.828
+Test accuracy: 0.807
+AUC: 0.614
+
+====================================
+
+
+2018 Jan 10 01:23:49
+CTD_Feature,PCA=100
