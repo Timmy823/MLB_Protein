@@ -45,10 +45,12 @@ def feature(data,data_string):
         Y = np.load('/home/mlb2017/res/phosphosite/'+data_string+'Y.npy')
         return X,Y
 scaler = StandardScaler()
+
 trainX,trainY=feature(data,'train')
 validX,validY=feature(data2,'validation')
 pca=PCA(n_components=20)
 trainX=scaler.fit_transform(trainX)
+validX=scaler.fit_transform(validX)
 trainX=np.array(pca.fit_transform(trainX))
 validX=np.array(pca.fit_transform(validX))
 #with open('freqpca.txt', 'a') as f:
@@ -78,7 +80,6 @@ def freqfeature(data,data_string):
         return add_feature
 train_freqX=freqfeature(data,'train')
 valid_freqX=freqfeature(data2,'validation')
-validX=scaler.fit_transform(validX)
 trainX = np.hstack((train_freqX,trainX)) 
 validX = np.hstack((valid_freqX,validX))
 print(trainX.shape)
