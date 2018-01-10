@@ -1,0 +1,27 @@
+
+2018 Jan 10 20:57:54
+freqpca_Feature,PCA=20+20
+0.788 (+/-0.035) for {'clf__gamma': 0.025, 'clf__C': 0.5}
+0.788 (+/-0.036) for {'clf__gamma': 0.01, 'clf__C': 0.5}
+0.782 (+/-0.036) for {'clf__gamma': 0.005, 'clf__C': 0.5}
+0.788 (+/-0.035) for {'clf__gamma': 0.025, 'clf__C': 1}
+0.790 (+/-0.035) for {'clf__gamma': 0.01, 'clf__C': 1}
+0.786 (+/-0.036) for {'clf__gamma': 0.005, 'clf__C': 1}
+0.780 (+/-0.034) for {'clf__gamma': 0.025, 'clf__C': 2.5}
+0.789 (+/-0.034) for {'clf__gamma': 0.01, 'clf__C': 2.5}
+0.789 (+/-0.036) for {'clf__gamma': 0.005, 'clf__C': 2.5}
+0.767 (+/-0.034) for {'clf__gamma': 0.025, 'clf__C': 5}
+0.786 (+/-0.035) for {'clf__gamma': 0.01, 'clf__C': 5}
+0.788 (+/-0.035) for {'clf__gamma': 0.005, 'clf__C': 5}
+0.752 (+/-0.034) for {'clf__gamma': 0.025, 'clf__C': 10}
+0.780 (+/-0.035) for {'clf__gamma': 0.01, 'clf__C': 10}
+0.786 (+/-0.034) for {'clf__gamma': 0.005, 'clf__C': 10}
+
+{"clf__gamma": 0.01, "clf__C": 1}
+Train roc_auc : 0.790
+Test accuracy: 0.670
+AUC: 0.611
+
+====================================
+
+
