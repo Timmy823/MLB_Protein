@@ -87,7 +87,7 @@ def feature(data,data_string):
             for i in range(1,4,1):
                 count=seqencode[k].count(i)
                 if count==0:
-                    for i in range(0,5,1):
+                    for j in range(0,5,1):
                         temp.append(0)
                 else:
                     onequarter=int(count/4) #25%位置
@@ -131,34 +131,3 @@ def feature(data,data_string):
     return X,Y
 trainX,trainY=feature(data,'train')
 validX,validY=feature(data2,'validation')
-
-'''with open('Flex_result.txt', 'a') as f:          #write file
-    f.write(time.strftime("%Y %b %d %H:%M:%S\nPCA=50\n"))
-    #parameters = {'clf__C': [5],'clf__gamma': [0.01]}
-    parameters={'clf__C': [0.5, 1, 2.5,5,10], 'clf__gamma': [0.025, 0.01, 0.005]}
-    clf = Pipeline([('scaler', StandardScaler()),
-                      ('pca',PCA(n_components=50)),
-                      ('clf', SVC(probability=True))])
-    scores = ['accuracy', 'roc_auc']
-    for score in scores:
-        clf = GridSearchCV(estimator=clf, 
-                          param_grid=parameters, 
-                          scoring='%s' % score, 
-                          cv=10,
-                          n_jobs=-1)
-
-        clf.fit(trainX, trainY)
-        means = clf.cv_results_['mean_test_score']
-        stds = clf.cv_results_['std_test_score']
-        for mean, std, params in zip(means, stds, clf.cv_results_['params']):
-            f.write("%0.3f (+/-%0.03f) for %r\n"% (mean, std * 2, params))
-        f.write('\n')
-        f.write(json.dumps(clf.best_params_))
-        f.write('\n')
-        f.write('Train '+str(score)+' : {:.3f}'.format(clf.best_score_))
-        f.write('\n')
-        clf = clf.best_estimator_
-        f.write('Test accuracy: {:.3f}'.format(clf.score(validX, validY)))
-        f.write('\n')
-        f.write('AUC: {:.3f}'.format(roc_auc_score(validY, clf.predict_proba(validX)[:, 1] )))
-        f.write('\n\n====================================\n\n\n')'''
